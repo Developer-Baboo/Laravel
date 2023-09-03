@@ -42,13 +42,10 @@ Write below code in json
         }
 ]
 
-
 then write this code in UserSeeder file
 
 <?php
-
 namespace Database\Seeders;
-
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
@@ -63,7 +60,6 @@ class UserSeeder extends Seeder
     {
         $json = File::get(database_path('json/users.json'));
         $users = collect(json_decode($json));
-
         $users->each(function ($user) {
             User::create([
                 'name' => $user->name,
@@ -74,9 +70,6 @@ class UserSeeder extends Seeder
         });
     }
 }
-
-
-
 then write this code in Database->seeders->DatabaseSeeders.php file
  public function run(): void
     {
@@ -86,10 +79,7 @@ then write this code in Database->seeders->DatabaseSeeders.php file
     }
 
 php artisan db:seed
-
-
 php artisan make:controller UserController
-
 <?php
 
 namespace App\Http\Controllers;
@@ -111,4 +101,17 @@ class UserController extends Controller
 table>tr>td*5
 
 form sa jb bhi data pa action perform krenga to add method use krenga
+
+
+while insert,update delete in form then use post
+<form emthod = post ></form>
+crsf
+cross site request forgeries
+form sa sara data read krna kaleya hum request method use krenga
+phir req variable sa un from ka values ko get krenga
+data read kaleya get use krenga
+view(show in browser(brower man enter krenga to aga wala parameter ke file open hogi), konse ko file ko pen kren ha)
+input type hidden and will be shown token if we check the source of form via inspect 
+and have used.
+ 
 

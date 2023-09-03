@@ -68,7 +68,7 @@ class UserController extends Controller
                 ->where('id', $id)
                 ->delete();
         if($user){
-            return redirect()->route('users');
+            echo "<h1>Data deleted successfully</h1>";
         }
     }
 
@@ -89,7 +89,7 @@ class UserController extends Controller
                         'city' => $req->usercity,
                     ]);
         if($user){
-            echo "<h1>Data updated successfully</h1>";
+            return redirect()->route('view.showusers')->with('message', 'succesfully updated');
         }else{
             echo "<h1>Data not updated successfully</h1>";
         }

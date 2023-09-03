@@ -16,7 +16,6 @@ class UserSeeder extends Seeder
     {
         $json = File::get(database_path('json/users.json'));
         $users = collect(json_decode($json));
-
         $users->each(function ($user) {
             User::create([
                 'name' => $user->name,
